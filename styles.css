@@ -8,8 +8,24 @@
 
 @font-face {
   font-family: "Made Evolve Sans";
+  src: url("assets/fonts/made-evolve-sans-medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Made Evolve Sans";
   src: url("assets/fonts/made-evolve-sans-bold.woff2") format("woff2");
   font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mirador Display";
+  src: local("Mirador Book"), local("Mirador"), local("Mirador Medium");
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }
@@ -30,7 +46,7 @@
   --shadow-soft: 0 24px 80px rgba(28, 28, 27, 0.12);
   --shadow-strong: 0 36px 110px rgba(22, 37, 31, 0.28);
   --max: 1200px;
-  --display: Georgia, "Times New Roman", serif;
+  --display: "Mirador Display", Georgia, "Times New Roman", serif;
   --sans: "Made Evolve Sans", "Segoe UI", Tahoma, sans-serif;
 }
 
