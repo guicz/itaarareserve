@@ -382,6 +382,7 @@ h2 {
   font-weight: 400;
   line-height: 1.02;
   overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 h1 {
