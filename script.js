@@ -7,6 +7,9 @@ const form = document.querySelector("[data-lead-form]");
 const hero = document.querySelector(".hero");
 const heroVideo = document.querySelector("[data-hero-video]");
 const leisureCards = document.querySelectorAll(".leisure-card");
+const mapModal = document.querySelector("[data-map-modal]");
+const mapOpenButtons = document.querySelectorAll("[data-map-open]");
+const mapCloseButtons = document.querySelectorAll("[data-map-close]");
 const whatsappNumber = "555599953002";
 
 function updateHeader() {
@@ -88,6 +91,30 @@ if (leisureCards.length) {
   } else {
     leisureCards.forEach((card) => card.classList.add("is-visible"));
   }
+}
+
+if (mapModal && mapOpenButtons.length) {
+  const openMap = () => {
+    mapModal.hidden = false;
+    document.body.classList.add("is-map-open");
+  };
+
+  const closeMap = () => {
+    mapModal.hidden = true;
+    document.body.classList.remove("is-map-open");
+  };
+
+  mapOpenButtons.forEach((button) => {
+    button.addEventListener("click", openMap);
+  });
+
+  mapCloseButtons.forEach((button) => {
+    button.addEventListener("click", closeMap);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !mapModal.hidden) closeMap();
+  });
 }
 
 if (form) {
