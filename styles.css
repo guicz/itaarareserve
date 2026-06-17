@@ -78,6 +78,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -148,6 +149,8 @@ input {
 
 .brand img {
   width: 156px;
+  height: auto;
+  object-fit: contain;
 }
 
 .menu-toggle {
@@ -1427,6 +1430,8 @@ h3 {
 
 .conversion-copy img {
   width: 240px;
+  height: auto;
+  object-fit: contain;
   margin-bottom: 34px;
 }
 
@@ -1516,6 +1521,8 @@ h3 {
 
 .site-footer img {
   width: 190px;
+  height: auto;
+  object-fit: contain;
   margin-bottom: 18px;
 }
 
@@ -1609,6 +1616,8 @@ h3 {
 
 .legal-header img {
   width: 190px;
+  height: auto;
+  object-fit: contain;
 }
 
 .legal-header a:not(.btn) {
