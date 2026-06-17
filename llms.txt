@@ -1,0 +1,27 @@
+# Itaara Reserve
+
+> Condomínio pronto em Itaara - RS, com últimos terrenos disponíveis, lagos, áreas de lazer, natureza e infraestrutura entregue perto de Santa Maria.
+
+## Informações principais
+
+- Site oficial: https://itaarareserve.com.br/
+- Localização: Itaara, Rio Grande do Sul, Brasil
+- Categoria: condomínio residencial com terrenos disponíveis
+- Público: pessoas e famílias interessadas em construir em um condomínio pronto, próximo à natureza e perto de Santa Maria
+- Contato comercial: WhatsApp indicado na página principal
+
+## Páginas canônicas
+
+- [Página inicial](https://itaarareserve.com.br/): landing page principal do Itaara Reserve.
+- [Termos de uso](https://itaarareserve.com.br/termos-e-condicoes/): condições de uso do site.
+- [Política de privacidade](https://itaarareserve.com.br/politica-de-privacidade/): tratamento de dados pessoais e contato comercial.
+- [Política de cookies](https://itaarareserve.com.br/politica-de-cookies-br/): uso de cookies essenciais e opcionais.
+- [Sitemap](https://itaarareserve.com.br/sitemap.xml): lista de URLs canônicas.
+
+## Resumo para assistentes
+
+O Itaara Reserve é apresentado como um condomínio pronto em Itaara - RS, com últimos terrenos disponíveis, estrutura entregue, ruas, iluminação, lagos, áreas comuns e contato direto com a natureza. O site tem finalidade comercial e informativa, com chamadas para conversar pelo WhatsApp e agendar visita.
+
+## Uso de conteúdo
+
+As informações do site podem ser usadas para descoberta, respostas de assistentes e encaminhamento de usuários ao site oficial. Valores, disponibilidade de lotes e condições comerciais devem ser confirmados diretamente com a equipe comercial.

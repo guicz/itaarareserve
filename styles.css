@@ -287,7 +287,7 @@ input {
   align-items: center;
   padding: 142px max(32px, calc((100vw - var(--max)) / 2)) 74px;
   color: var(--white);
-  background: var(--black) url("assets/images/lagos-condominio.jpg") center / cover no-repeat;
+  background: var(--black) url("assets/images/lagos-condominio.webp") center / cover no-repeat;
 }
 
 .hero-video {
@@ -295,7 +295,7 @@ input {
   inset: 0;
   z-index: 1;
   overflow: hidden;
-  background: var(--black) url("assets/images/lagos-condominio.jpg") center / cover no-repeat;
+  background: var(--black) url("assets/images/lagos-condominio.webp") center / cover no-repeat;
 }
 
 .hero-video iframe {

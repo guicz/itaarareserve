@@ -43,6 +43,7 @@ Se a Hostinger não permitir renomear `public_html`, crie uma pasta `backup-site
    - `public_html/script.js`
    - `public_html/.htaccess`
    - `public_html/robots.txt`
+   - `public_html/llms.txt`
    - `public_html/sitemap.xml`
    - `public_html/assets/...`
    - `public_html/termos-e-condicoes/index.html`
@@ -61,6 +62,7 @@ Acesse:
 - `https://itaarareserve.com.br/politica-de-cookies-br/`
 - `https://itaarareserve.com.br/sitemap.xml`
 - `https://itaarareserve.com.br/robots.txt`
+- `https://itaarareserve.com.br/llms.txt`
 
 Também teste:
 
