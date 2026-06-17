@@ -128,15 +128,18 @@ input {
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  min-height: 58px;
+  display: grid;
+  place-items: center;
+  width: 186px;
+  height: 80px;
+  min-height: 0;
   border: 1px solid rgba(255, 254, 255, 0.16);
   border-radius: 8px;
   padding: 11px 14px;
   background: rgba(22, 37, 31, 0.34);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(18px);
+  overflow: hidden;
   transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
@@ -150,6 +153,7 @@ input {
 .brand img {
   width: 156px;
   height: auto;
+  max-height: 54px;
   object-fit: contain;
 }
 
@@ -1756,12 +1760,15 @@ body.is-map-open {
   }
 
   .brand {
-    min-height: 56px;
+    width: 178px;
+    height: 76px;
+    min-height: 0;
     padding: 10px 13px;
   }
 
   .brand img {
     width: 150px;
+    max-height: 52px;
   }
 
   .menu-toggle {
@@ -1923,12 +1930,15 @@ body.is-map-open {
   }
 
   .brand {
-    min-height: 52px;
+    width: 152px;
+    height: 66px;
+    min-height: 0;
     padding: 9px 11px;
   }
 
   .brand img {
     width: 126px;
+    max-height: 44px;
   }
 
   .menu-toggle {
