@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://itaarareserve.com.br/sitemap.xml

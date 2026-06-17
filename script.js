@@ -10,7 +10,11 @@ const leisureCards = document.querySelectorAll(".leisure-card");
 const mapModal = document.querySelector("[data-map-modal]");
 const mapOpenButtons = document.querySelectorAll("[data-map-open]");
 const mapCloseButtons = document.querySelectorAll("[data-map-close]");
+const cookieConsent = document.querySelector("[data-cookie-consent]");
+const cookieAccept = document.querySelector("[data-cookie-accept]");
+const cookieReject = document.querySelector("[data-cookie-reject]");
 const whatsappNumber = "555599953002";
+const cookieConsentKey = "itaara_cookie_consent";
 
 function updateHeader() {
   if (!header) return;
@@ -137,4 +141,20 @@ if (form) {
     const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   });
+}
+
+if (cookieConsent && cookieAccept && cookieReject) {
+  const storedConsent = localStorage.getItem(cookieConsentKey);
+
+  if (!storedConsent) {
+    cookieConsent.hidden = false;
+  }
+
+  const saveCookieConsent = (value) => {
+    localStorage.setItem(cookieConsentKey, value);
+    cookieConsent.hidden = true;
+  };
+
+  cookieAccept.addEventListener("click", () => saveCookieConsent("accepted"));
+  cookieReject.addEventListener("click", () => saveCookieConsent("essential"));
 }

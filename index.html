@@ -8,11 +8,46 @@
       name="description"
       content="Condomínio pronto em Itaara, com últimos terrenos disponíveis, lagos, natureza e infraestrutura concluída."
     />
+    <link rel="canonical" href="https://itaarareserve.com.br/" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Itaara Reserve" />
+    <meta property="og:title" content="Itaara Reserve | Últimos terrenos em Itaara" />
+    <meta
+      property="og:description"
+      content="Condomínio pronto em Itaara, com últimos terrenos disponíveis, lagos, natureza e infraestrutura concluída."
+    />
+    <meta property="og:url" content="https://itaarareserve.com.br/" />
+    <meta property="og:image" content="https://itaarareserve.com.br/assets/images/vista-geral.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Itaara Reserve | Últimos terrenos em Itaara" />
+    <meta
+      name="twitter:description"
+      content="Condomínio pronto em Itaara, com últimos terrenos disponíveis, lagos, natureza e infraestrutura concluída."
+    />
+    <meta name="twitter:image" content="https://itaarareserve.com.br/assets/images/vista-geral.jpg" />
     <link rel="preload" href="assets/images/lagos-condominio.jpg" as="image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Place",
+        "name": "Itaara Reserve",
+        "description": "Condomínio pronto em Itaara, com últimos terrenos disponíveis, lagos, natureza e infraestrutura concluída.",
+        "url": "https://itaarareserve.com.br/",
+        "image": "https://itaarareserve.com.br/assets/images/vista-geral.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Itaara",
+          "addressRegion": "RS",
+          "addressCountry": "BR"
+        }
+      }
+    </script>
     <script>
       if (location.protocol === "file:") document.documentElement.classList.add("is-file-preview");
     </script>
-    <link rel="stylesheet" href="styles.css?v=design-27" />
+    <link rel="stylesheet" href="styles.css?v=design-28" />
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -329,7 +364,8 @@
           </label>
           <label class="consent">
             <input type="checkbox" name="consent" required />
-            Aceito receber informações sobre o Itaara Reserve pelo WhatsApp e e-mail informados.
+            Aceito receber informações sobre o Itaara Reserve pelo WhatsApp e e-mail informados, conforme a
+            <a href="politica-de-privacidade/">Política de Privacidade</a>.
           </label>
           <button class="btn btn-primary" type="submit">Quero receber informações dos últimos terrenos</button>
           <p class="form-note">O envio abre uma conversa no WhatsApp com seus dados preenchidos.</p>
@@ -344,11 +380,26 @@
         <p>Condomínio pronto em Itaara - RS, a poucos minutos de Santa Maria.</p>
       </div>
       <div class="footer-links">
-        <a href="https://itaarareserve.com.br/termos-e-condicoes/" target="_blank" rel="noreferrer">Termos e condições</a>
-        <a href="https://itaarareserve.com.br/politica-de-cookies-br/" target="_blank" rel="noreferrer">Política de cookies</a>
+        <a href="termos-e-condicoes/">Termos de uso</a>
+        <a href="politica-de-privacidade/">Política de privacidade</a>
+        <a href="politica-de-cookies-br/">Política de cookies</a>
         <a href="https://www.instagram.com/construtoraitaara/" target="_blank" rel="noreferrer">Instagram</a>
       </div>
     </footer>
+
+    <div class="cookie-consent" data-cookie-consent hidden>
+      <div>
+        <strong>Privacidade e cookies</strong>
+        <p>
+          Usamos cookies essenciais para o funcionamento do site e, com sua autorização, cookies de medição para entender visitas e melhorar a experiência.
+        </p>
+      </div>
+      <div class="cookie-consent__actions">
+        <a class="btn btn-ghost" href="politica-de-cookies-br/">Ver política</a>
+        <button class="btn btn-outline-dark" type="button" data-cookie-reject>Recusar opcionais</button>
+        <button class="btn btn-primary" type="button" data-cookie-accept>Aceitar</button>
+      </div>
+    </div>
 
     <div class="map-modal" data-map-modal hidden>
       <div class="map-modal__backdrop" data-map-close></div>
@@ -362,6 +413,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=design-27"></script>
+    <script src="script.js?v=design-28"></script>
   </body>
 </html>
