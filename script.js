@@ -16,7 +16,7 @@ const cookieReject = document.querySelector("[data-cookie-reject]");
 const whatsappNumber = "555599953002";
 const cookieConsentKey = "itaara_cookie_consent";
 // URL do App da Web do Apps Script (preencher apos implantar). Vazio = nao envia.
-const LEAD_ENDPOINT = "";
+const LEAD_ENDPOINT = "https://script.google.com/macros/s/AKfycbyQq-8vE01MUPePteRMLssgBGEd5wA-QUaygpuaSwSsVSBClH8WALh2aHCGdGW2Jb5Ryw/exec";
 
 function getCookie(name) {
   const m = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
