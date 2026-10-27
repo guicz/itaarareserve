@@ -15,6 +15,46 @@ const cookieAccept = document.querySelector("[data-cookie-accept]");
 const cookieReject = document.querySelector("[data-cookie-reject]");
 const whatsappNumber = "555599953002";
 const cookieConsentKey = "itaara_cookie_consent";
+// URL do App da Web do Apps Script (preencher apos implantar). Vazio = nao envia.
+const LEAD_ENDPOINT = "";
+
+function getCookie(name) {
+  const m = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+  return m ? decodeURIComponent(m[1]) : "";
+}
+
+function makeEventId() {
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  return "lp-" + Date.now() + "-" + Math.random().toString(36).slice(2, 10);
+}
+
+// guarda UTMs/fbclid da primeira entrada para nao perder em navegacao interna
+(function storeAttribution() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "fbclid"];
+    if (keys.some((k) => params.get(k))) {
+      const attr = {};
+      keys.forEach((k) => { attr[k] = params.get(k) || ""; });
+      sessionStorage.setItem("itaara_attr", JSON.stringify(attr));
+    }
+  } catch (e) {}
+})();
+
+function getAttribution() {
+  try { return JSON.parse(sessionStorage.getItem("itaara_attr") || "{}"); } catch (e) { return {}; }
+}
+
+function sendLead(payload) {
+  if (!LEAD_ENDPOINT) return;
+  const body = JSON.stringify(payload);
+  try {
+    if (navigator.sendBeacon && navigator.sendBeacon(LEAD_ENDPOINT, new Blob([body], { type: "text/plain;charset=UTF-8" }))) return;
+  } catch (e) {}
+  try {
+    fetch(LEAD_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true, headers: { "Content-Type": "text/plain;charset=UTF-8" }, body }).catch(() => {});
+  } catch (e) {}
+}
 
 function updateHeader() {
   if (!header) return;
@@ -129,10 +169,31 @@ if (form) {
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const phone = String(data.get("phone") || "").trim();
+    const busca = String(data.get("busca") || "").trim();
+    const quando = String(data.get("quando") || "").trim();
+
+    // interceptor: grava o lead antes de abrir o WhatsApp (nunca bloqueia o WhatsApp)
+    try {
+      const eventId = makeEventId();
+      const attr = getAttribution();
+      sendLead({
+        busca, quando, nome: name, telefone: phone, email,
+        consentimento: Boolean(data.get("consent")),
+        utm_source: attr.utm_source || "", utm_medium: attr.utm_medium || "",
+        utm_campaign: attr.utm_campaign || "", utm_content: attr.utm_content || "",
+        utm_term: attr.utm_term || "", fbclid: attr.fbclid || "",
+        fbp: getCookie("_fbp"), pagina: window.location.href,
+        event_id: eventId, website: String(data.get("website") || "")
+      });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "lead_lp", event_id: eventId, lead_busca: busca, lead_quando: quando });
+    } catch (e) {}
 
     const message = [
       "Olá, quero receber informações dos últimos terrenos do Itaara Reserve.",
       "",
+      `Busco: ${busca}`,
+      `Quando: ${quando}`,
       `Nome: ${name}`,
       `E-mail: ${email}`,
       `Telefone: ${phone}`

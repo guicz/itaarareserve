@@ -410,16 +410,35 @@
         </div>
         <form class="lead-form" data-lead-form>
           <label>
+            O que você busca no Itaara Reserve?
+            <select name="busca" required>
+              <option value="" disabled selected>Selecione</option>
+              <option value="Construir minha casa">Construir minha casa</option>
+              <option value="Investir em um terreno">Investir em um terreno</option>
+              <option value="Quero conhecer primeiro">Quero conhecer primeiro</option>
+            </select>
+          </label>
+          <label>
+            Para quando você planeja?
+            <select name="quando" required>
+              <option value="" disabled selected>Selecione</option>
+              <option value="Ainda este ano">Ainda este ano</option>
+              <option value="Em 2027">Em 2027</option>
+              <option value="Só estou pesquisando">Só estou pesquisando</option>
+            </select>
+          </label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+          <label>
             Nome
             <input type="text" name="name" autocomplete="name" required />
           </label>
           <label>
-            E-mail
-            <input type="email" name="email" autocomplete="email" required />
-          </label>
-          <label>
             Telefone
             <input type="tel" name="phone" autocomplete="tel" required />
+          </label>
+          <label>
+            E-mail
+            <input type="email" name="email" autocomplete="email" required />
           </label>
           <label class="consent">
             <input type="checkbox" name="consent" required />
@@ -472,6 +491,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=design-28"></script>
+    <script src="script.js?v=design-29"></script>
   </body>
 </html>
