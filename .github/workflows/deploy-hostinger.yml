@@ -1,0 +1,46 @@
+name: Deploy Hostinger (itaarareserve.com.br)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar SSH
+        env:
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          HOST: ${{ secrets.HOSTINGER_HOST }}
+          PORT: ${{ secrets.HOSTINGER_PORT }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$PORT" "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+
+      # Nao destrutivo: sem --delete. Arquivos do servidor que nao estao no repo ficam intactos.
+      - name: Publicar em public_html (rsync, sem apagar)
+        env:
+          HOST: ${{ secrets.HOSTINGER_HOST }}
+          PORT: ${{ secrets.HOSTINGER_PORT }}
+          USER: ${{ secrets.HOSTINGER_USER }}
+        run: |
+          rsync -rlcv \
+            --exclude='.git/' --exclude='.github/' --exclude='.nojekyll' \
+            -e "ssh -i ~/.ssh/deploy_key -p $PORT -o IdentitiesOnly=yes" \
+            ./ "$USER@$HOST:domains/itaarareserve.com.br/public_html/"
+
+      - name: Conferir site no ar
+        run: |
+          sleep 5
+          html=$(curl -fsSL -H 'Cache-Control: no-cache' "https://itaarareserve.com.br/?gha=${GITHUB_SHA}")
+          echo "$html" | grep -q 'GTM-MFXP7VX' && echo "GTM ok"
+          echo "$html" | grep -o 'script.js?v=[^"]*' | head -1
